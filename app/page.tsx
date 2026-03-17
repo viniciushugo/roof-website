@@ -1,7 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/uDTMdyvE";
 
@@ -29,31 +30,7 @@ const steps = [
 export default function Home() {
   return (
     <main>
-      {/* ─── Navigation ─── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Image
-            src="/images/logo.svg"
-            alt="Roof"
-            width={68}
-            height={35}
-            className="h-[28px] w-auto"
-          />
-          <a
-            href={TESTFLIGHT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity hover:opacity-80"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/app-store-badge.svg"
-              alt="Download on the App Store"
-              className="h-[34px] w-auto"
-            />
-          </a>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* ─── Hero ─── */}
       <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
@@ -194,37 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Footer ─── */}
-      <footer className="border-t border-[#1f1f1f] bg-[#111]">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-10 sm:flex-row sm:items-center">
-          <div>
-            <Image
-              src="/images/logo.svg"
-              alt="Roof"
-              width={68}
-              height={35}
-              className="h-[24px] w-auto"
-            />
-            <p className="mt-1.5 text-[13px] text-[#555]">
-              &copy; 2025 Roof. All rights reserved.
-            </p>
-          </div>
-          <div className="flex gap-6">
-            <Link
-              href="/privacy"
-              className="text-[13px] text-[#555] transition-colors hover:text-white/60"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-[13px] text-[#555] transition-colors hover:text-white/60"
-            >
-              Terms
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
