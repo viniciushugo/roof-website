@@ -10,7 +10,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Roof — Find your place in the Netherlands",
+  title: "Roof | Find your place in the Netherlands",
   description:
     "Real-time housing alerts from Kamernet, Pararius, Funda and more. Be first. Apply fast. Get the keys.",
 };

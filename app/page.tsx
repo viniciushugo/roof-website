@@ -30,6 +30,7 @@ const steps = [
 export default function Home() {
   return (
     <main>
+      <h1 className="sr-only">Roof</h1>
       <SiteHeader />
 
       {/* ─── Hero ─── */}
