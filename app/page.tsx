@@ -83,7 +83,7 @@ export default function Home() {
           >
             While you slept,
             <br />
-            we found your place.
+            <em>we found your place.</em>
           </h1>
 
           <p
