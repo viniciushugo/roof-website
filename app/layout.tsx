@@ -10,9 +10,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Roof | Find your place in the Netherlands",
+  title: "Roof",
   description:
     "Real-time housing alerts from Kamernet, Pararius, Funda and more. Be first. Apply fast. Get the keys.",
+  applicationName: "Roof",
+  openGraph: {
+    title: "Roof",
+    siteName: "Roof",
+  },
 };
 
 export default function RootLayout({
