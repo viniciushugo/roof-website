@@ -1,101 +1,212 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
+const TESTFLIGHT_URL = "https://testflight.apple.com/join/uDTMdyvE";
+
+const steps = [
+  {
+    number: "01",
+    title: "Set your search once",
+    description:
+      "Tell us your city, budget, and housing type. Takes 2 minutes.",
+  },
+  {
+    number: "02",
+    title: "We hunt while you sleep",
+    description:
+      "Roof scrapes Kamernet, Pararius, Funda and more — continuously, day and night. Never misses a listing.",
+  },
+  {
+    number: "03",
+    title: "You're always first",
+    description:
+      "The second a match appears you get an alert with all the details and a direct link to apply.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <main>
+      {/* ─── Navigation ─── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <Image
+            src="/images/logo.svg"
+            alt="Roof"
+            width={68}
+            height={35}
+            className="h-[22px] w-auto"
+          />
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href={TESTFLIGHT_URL}
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-[4px] bg-[#111] px-5 py-2 text-[13px] font-medium text-white transition-colors hover:bg-[#333]"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            Get the app
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </nav>
+
+      {/* ─── Hero ─── */}
+      <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
+        {/* LINE 55: Replace this div with next/image when hero photo is ready */}
+        {/* import heroImage from '@/public/images/hero.jpg' */}
+        {/* <Image src={heroImage} alt="Hero" fill className="object-cover" priority /> */}
+        <div className="absolute inset-0 bg-[#C8C0B4]" />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center px-6 text-center animate-fade-up">
+          <Badge
+            variant="outline"
+            className="mb-8 border-white/60 bg-transparent text-white tracking-[0.12em] text-[11px] font-normal px-4 py-1.5 rounded-full"
+          >
+            NOW AVAILABLE IN THE NETHERLANDS
+          </Badge>
+
+          <h1
+            className="font-[family-name:var(--font-playfair)] font-normal text-white leading-[1.05] max-w-[900px]"
+            style={{ fontSize: "clamp(36px, 8vw, 96px)" }}
+          >
+            While you slept,
+            <br />
+            we found your place.
+          </h1>
+
+          <p
+            className="mt-6 max-w-[520px] leading-[1.6] text-[#F4F2EE]/75"
+            style={{ fontSize: "clamp(16px, 2vw, 20px)" }}
+          >
+            Real-time alerts from Kamernet, Pararius, Funda and more. Be first.
+            Apply fast. Get the keys.
+          </p>
+
+          <a
+            href={TESTFLIGHT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-flex items-center justify-center rounded-[4px] bg-white px-12 py-5 text-[15px] font-medium text-[#111] transition-colors hover:bg-white/90"
+          >
+            Get the app
+          </a>
+
+          <p className="mt-4 text-[13px] text-[#F4F2EE]/50">
+            Free · iOS · The Netherlands
+          </p>
+        </div>
+      </section>
+
+      {/* ─── Ticker Bar ─── */}
+      <section className="overflow-hidden bg-[#111] py-[18px]">
+        <div className="flex animate-ticker whitespace-nowrap">
+          {[0, 1].map((i) => (
+            <span
+              key={i}
+              className="shrink-0 text-[14px] tracking-[0.04em] text-white px-8"
+            >
+              Monitoring Kamernet · Pararius · Funda · HousingAnywhere ·
+              Kamernet · Pararius · and more — 24/7&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── How It Works ─── */}
+      <section
+        className="bg-[#F4F2EE]"
+        style={{ padding: "clamp(80px, 12vw, 140px) 24px" }}
+      >
+        <h2
+          className="font-[family-name:var(--font-playfair)] font-normal text-[#111] text-center"
+          style={{ fontSize: "clamp(32px, 5vw, 52px)" }}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          The easiest keys you&rsquo;ll ever get.
+        </h2>
+
+        <div className="mx-auto mt-[72px] grid max-w-[960px] grid-cols-1 gap-12 md:grid-cols-3 md:gap-12">
+          {steps.map((step) => (
+            <div key={step.number}>
+              <span className="font-[family-name:var(--font-playfair)] italic text-[72px] leading-none text-[#E8E5DF] block mb-4">
+                {step.number}
+              </span>
+              <Separator className="mb-5 h-px w-8 bg-[#111]" />
+              <h3 className="mb-2.5 text-[17px] font-medium text-[#111]">
+                {step.title}
+              </h3>
+              <p className="text-[15px] leading-[1.75] text-[#555]">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── Final CTA ─── */}
+      <section
+        className="bg-[#111] text-center"
+        style={{ padding: "clamp(100px, 14vw, 160px) 24px" }}
+      >
+        <div className="mx-auto max-w-[700px]">
+          <h2
+            className="font-[family-name:var(--font-playfair)] font-normal text-white leading-[1.05]"
+            style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
+          >
+            Stop refreshing.
+            <br />
+            <em>We do it for you.</em>
+          </h2>
+
+          <a
+            href={TESTFLIGHT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-12 inline-flex items-center justify-center rounded-[4px] bg-white px-12 py-5 text-[15px] font-medium text-[#111] transition-colors hover:bg-white/90"
+          >
+            Get the app
+          </a>
+
+          <p className="mt-4 text-[13px] text-white/35">
+            Free · iOS · The Netherlands
+          </p>
+        </div>
+      </section>
+
+      {/* ─── Footer ─── */}
+      <footer className="border-t border-[#1f1f1f] bg-[#111]">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-10 sm:flex-row sm:items-center">
+          <div>
+            <Image
+              src="/images/logo.svg"
+              alt="Roof"
+              width={68}
+              height={35}
+              className="h-[18px] w-auto"
+            />
+            <p className="mt-1.5 text-[13px] text-[#555]">
+              &copy; 2025 Roof. All rights reserved.
+            </p>
+          </div>
+          <div className="flex gap-6">
+            <Link
+              href="/privacy"
+              className="text-[13px] text-[#555] transition-colors hover:text-white/60"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-[13px] text-[#555] transition-colors hover:text-white/60"
+            >
+              Terms
+            </Link>
+          </div>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
